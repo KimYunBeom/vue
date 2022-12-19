@@ -229,15 +229,28 @@ onMounted(async () => {
     <div class="row align-items-center py-1">
       <div class="col-md-10 mx-auto col-lg-10">
         <form class="p-4 p-md-4 border rounded-3 bg-light" @input="validation.validateAll">
-          <h4 class="mb-3">기본 정보 입력</h4>
-          <div class="d-flex justify-content-start">
-            <div class="form-floating mb-3 w-50 me-2">
-              <input type="date" class="form-control" id="regist_date" v-model="state.form.regist_date" />
-              <label for="regist_date">등록일자</label>
+          <h4 class="mb-3">기본 정보</h4>
+          <div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="regist_user"
+                placeholder="등록자"
+                v-model="state.form.regist_user"
+                readonly
+              />
+              <label for="regist_user">등록자</label>
             </div>
-            <div class="form-floating mb-3 w-50">
-              <input type="time" class="form-control" id="regist_time" v-model="state.form.regist_time" />
-              <label for="regist_time">등록시간</label>
+            <div class="d-flex justify-content-start">
+              <div class="form-floating mb-3 w-50 me-2">
+                <input type="date" class="form-control" id="regist_date" v-model="state.form.regist_date" />
+                <label for="regist_date">등록일자</label>
+              </div>
+              <div class="form-floating mb-3 w-50">
+                <input type="time" class="form-control" id="regist_time" v-model="state.form.regist_time" />
+                <label for="regist_time">등록시간</label>
+              </div>
             </div>
           </div>
           <div class="d-flex justify-content-start">
@@ -248,26 +261,6 @@ onMounted(async () => {
             <div class="form-floating mb-3 w-50">
               <input type="time" class="form-control" id="limit_time" v-model="state.form.limit_time" />
               <label for="limit_time">등록시간</label>
-            </div>
-          </div>
-          <div class="d-flex justify-content-start">
-            <div class="form-floating mb-3 w-50 me-2">
-              <select class="form-select me-2 p-select dpin" aria-label="searchOption1" v-model="state.form.status">
-                <option :value="column.key" v-for="column in ScheduleStatus">
-                  {{ column.val }}
-                </option>
-              </select>
-            </div>
-            <div class="form-floating mb-3 w-50">
-              <input
-                type="text"
-                class="form-control"
-                id="regist_user"
-                placeholder="등록자"
-                v-model="state.form.regist_user"
-                readonly
-              />
-              <label for="regist_user">등록자</label>
             </div>
           </div>
           <div v-if="state.errors.length">
@@ -287,6 +280,22 @@ onMounted(async () => {
               placeholder="내용"
             ></textarea>
             <label for="content">내용</label>
+          </div>
+          <h4 class="mb-3">상태</h4>
+          <div class="d-flex justify-content-start">
+            <div class="form-floating mb-3 me-2 w-50">
+              <div class="form-check form-check-inline" v-for="column in ScheduleStatus">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="statusOptions"
+                  :id="column.val"
+                  :value="column.key"
+                  v-model="state.form.status"
+                />
+                <label class="form-check-label" :for="column.val">{{ column.val }}</label>
+              </div>
+            </div>
           </div>
           <h4 class="mb-3">대상 선택</h4>
           <div class="input-group mb-1">

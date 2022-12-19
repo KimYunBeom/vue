@@ -88,7 +88,7 @@ onMounted(() => {
     </h5>
   </div>
   <hr />
-  <div class="container text-center w-25">
+  <div class="container w-50">
     <ul class="list-group">
       <li class="list-group-item list-group-item-primary">Link</li>
       <li class="list-group-item list-group-item-info">

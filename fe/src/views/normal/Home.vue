@@ -71,9 +71,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <h5 class="txt-red" v-if="loginStore.isLogin && loginStore.status !== '99'">
-    <span>code : {{ loginStore.status }}, 당신의 계정은 사용 허가가 필요합니다. 관리자에게 문의하세요. </span>
-  </h5>
+  <h1 class="txt-red text-center" v-if="loginStore.isLogin && loginStore.status !== '99'">
+    <div>error code : {{ loginStore.status }}</div>
+    <div>&nbsp;</div>
+    <div>당신의 계정은 사용 허가가 필요합니다. 관리자에게 문의하세요.</div>
+    <div>&nbsp;</div>
+  </h1>
   <h5 class="tac">
     <img src="/assets/image/opinion.png" alt="소감" class="main_image" />
   </h5>

@@ -123,11 +123,11 @@ const leave = (paramForParent) => {
       if (result.isConfirmed) {
         resultMessage = resultMessageY;
         confirmText = 'success';
+
+        deleteMember();
       }
 
       swal.fire(resultMessage, '', confirmText);
-
-      deleteMember();
     });
 };
 

@@ -75,16 +75,16 @@ batch
 
 ### BackEnd
 
-- Language
+- JavaScript Environment
   - Node.js
-- Web Framework
+- JavaScript Web Framework
   - Express.js
 
 ### Batch
 
 - Java
-- Spring Batch
-- Spring Scheduler
+  - Spring Batch
+  - Spring Scheduler
 
 ### DataBase
 
@@ -114,7 +114,9 @@ batch
 - Oracle Cloud (TEST)
 - AWS ECR (PRD)
 
-## Environment > Local Setting
+---
+
+## Local Development Setting
 
 - vscode 설치
 - nodejs 설치
@@ -122,6 +124,8 @@ batch
 - vscode 실행
 - 각 폴더에서 npm i 실행
 - 각 폴더에서 npm run dev 실행
+
+---
 
 ## Local Build
 
